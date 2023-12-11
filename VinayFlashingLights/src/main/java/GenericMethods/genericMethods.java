@@ -2,6 +2,8 @@ package GenericMethods;
 
 import java.io.File;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
@@ -195,6 +197,34 @@ public class genericMethods {
 			}
 
 		}
+		
+		//screen shot with time stamp
+		
+		public void screenshottimestamp() throws Exception
+		{
+		    LocalDateTime dateTime = LocalDateTime.now();
+	  	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+	  	    String timestamp = formatter.format(dateTime);
+
+	  		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+	  		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+	  		File destFile = new File("./ScreenShots/" +"Screenshot_"+timestamp +".png");
+	  		FileUtils.copyFile(sourceFile, destFile);
+		}
+
+		
+		public void screenshottimestamp(String picname) throws Exception
+		{
+		    LocalDateTime dateTime = LocalDateTime.now();
+	  	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+	  	    String timestamp = formatter.format(dateTime);
+
+	  		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+	  		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+	  		File destFile = new File("./ScreenShots/" +picname+timestamp +".png");
+	  		FileUtils.copyFile(sourceFile, destFile);
+		}
+
 		
 		
 //		public boolean Screen_Shot(String name) throws Exception

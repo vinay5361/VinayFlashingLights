@@ -35,7 +35,8 @@ public class SunglassesCategorization extends Browser {
 	         clickElement(costume);
 	         delay(5);
 	        // driver.navigate().back();
-	         screenshot("1.costume & holiday wrong path");                         // takes screenshot
+	       //  screenshot("1.costume & holiday wrong path");                         // takes screenshot
+	         screenshottimestamp("1.costume & holiday wrong path");
 	         
 	         JavascriptExecutor js = (JavascriptExecutor) driver;
 	         js.executeScript("window.scrollBy(0, 1000)");                         //scroll down 
